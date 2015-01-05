@@ -126,7 +126,7 @@ def init_config():
 		if (config.get(which, 'server') == "github.com") :
 			api_url = "https://api.github.com"
 		else:
-			api_url = "https://%s/api/v3" % config.get(which, 'server')
+			api_url = "http://%s/api/v3" % config.get(which, 'server')
 		
 		config.set(which, 'url', "%s/repos/%s" % (api_url, config.get(which, 'repository')))
 	
@@ -200,7 +200,8 @@ def send_request(which, url, post_data=None):
 	req.add_header("Authorization", b"Basic " + base64.urlsafe_b64encode(username.encode("utf-8") + b":" + password.encode("utf-8")))
 	
 	req.add_header("Content-Type", "application/json")
-	req.add_header("Accept", "application/json")
+	#changed to support v3 -shane
+	req.add_header("Accept", "application/vnd.github.v3+json")
 	req.add_header("User-Agent", "IQAndreas/github-issues-import")
 	
 	try:
