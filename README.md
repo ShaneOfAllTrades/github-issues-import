@@ -9,6 +9,8 @@ Fork of one of the tools by [Max Korenkov](https://github.com/mkorenkov) separat
 
 The script will by default look for a file named `config.ini` located in the same folder as the Python script. For a list of all possible configuration options, see [_Configuration_](http://www.iqandreas.com/github-issues-import/configuration/).
 
+Note: in the ShaneOfAllTrades fork, I modified the Enterprise script to use http instead of https. If you would like to change back, it is located @ line 127. Also the accept header was changed on line 201 to comply with new GitHub requirements. These changes fixed a few bugs for myself.
+
 To quickly get started, rename `config.ini.sample` to `config.ini`, and edit the fields to match your login info and repository info. If you want to use a different credentials for the source and target repositories, please see [_Configuration: Enterprise Accounts and Advanced Login Options_](http://www.iqandreas.com/github-issues-import/configuration/#enterprise). Store the config file in the same folder as the `gh-issues-import.py` script, or store it in a different folder, using the `--config <file>` option to specify which config file to load in.
 
 **Warning:** The password is stored in plain-text, so avoid storing the config file in a public repository. To avoid this, you can instead pass the username and/or password as arguments by using the `-u <username>` and `-p <password>` flags respectively. If the username or password is not passed in from either of these locations, the user will be prompted for them when the script runs.
